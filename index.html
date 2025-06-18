@@ -72,6 +72,46 @@
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    #arlo-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 280px;
+  font-family: sans-serif;
+}
+
+#arlo-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.arlo-info span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.arlo-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.arlo-info button {
+  background: #10b981;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -99,16 +139,31 @@
   <div id="feedback" onclick="alert('Thanks for your feedback!')">💬 Feedback</div>
 
   <script>
-    function addTask() {
-      const input = document.getElementById("newTaskInput");
-      const taskText = input.value.trim();
-      if (!taskText) return;
-      const task = document.createElement("div");
-      task.className = "task";
-      task.innerHTML = `<input type="checkbox" /> ${taskText}`;
-      document.getElementById("todoTasks").appendChild(task);
-      input.value = "";
-    }
+   function generateTasks() {
+  const suggestions = [
+    "🧾 Reconcile VAT return (Apr–Jun)",
+    "📊 Review P&L for last quarter",
+    "📥 Upload client receipts to Xero"
+  ];
+  const box = document.getElementById("todoTasks");
+  suggestions.forEach(text => {
+    const task = document.createElement("div");
+    task.className = "task";
+    task.innerHTML = `<input type="checkbox" /> ${text}`;
+    box.appendChild(task);
+  });
+
+  document.getElementById("arlo-message").innerText = "Here are a few finance tasks to get started!";
+}
   </script>
+  <div id="arlo-box">
+  <img src="https://i.imgur.com/tXXmJXL.png" alt="Arlo Avatar" />
+  <div class="arlo-info">
+    <strong>Arlo</strong><br />
+    <span>Finance AI Assistant</span>
+    <p id="arlo-message">Hey, need help with bookkeeping tasks?</p>
+    <button onclick="generateTasks()">Ask Arlo</button>
+  </div>
+</div>
 </body>
 </html>
