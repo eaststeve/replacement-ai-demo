@@ -3,31 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Replacement AI Demo</title>
+  <title>Replacement AI Task Board</title>
   <style>
     body {
       font-family: sans-serif;
-      padding: 2rem;
       background: #f4f4f4;
-    }
-    .box {
-      background: white;
+      margin: 0;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: auto;
     }
     h1 {
+      text-align: center;
       color: #3b82f6;
+    }
+    .board {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    .column {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 300px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .column h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .task {
+      background: #e0ecff;
+      padding: 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .task input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    .add-task {
+      margin-top: 1rem;
+      display: flex;
+    }
+    .add-task input {
+      flex: 1;
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+    }
+    .add-task button {
+      padding: 0.4rem 1rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    #feedback {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #facc15;
+      color: #111;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>🎯 Replacement AI Demo</h1>
-    <p>This is your live demo placeholder. The full task system will be added here next.</p>
-    <p>✅ You’ve successfully published your site via GitHub Pages.</p>
+  <h1>🎯 Replacement AI Task Board</h1>
+
+  <div class="board">
+    <div class="column" id="todo">
+      <h2>To Do</h2>
+      <div class="add-task">
+        <input type="text" id="newTaskInput" placeholder="New task..." />
+        <button onclick="addTask()">Add</button>
+      </div>
+      <div id="todoTasks"></div>
+    </div>
+    <div class="column">
+      <h2>In Progress</h2>
+      <div class="task"><input type="checkbox" /> Start finance checklist</div>
+    </div>
+    <div class="column">
+      <h2>Done</h2>
+      <div class="task"><input type="checkbox" checked /> Opened this demo ✅</div>
+    </div>
   </div>
+
+  <div id="feedback" onclick="alert('Thanks for your feedback!')">💬 Feedback</div>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("newTaskInput");
+      const taskText = input.value.trim();
+      if (!taskText) return;
+      const task = document.createElement("div");
+      task.className = "task";
+      task.innerHTML = `<input type="checkbox" /> ${taskText}`;
+      document.getElementById("todoTasks").appendChild(task);
+      input.value = "";
+    }
+  </script>
 </body>
 </html>
