@@ -9,10 +9,10 @@
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
-<body class="bg-gradient-to-br from-slate-800 to-slate-950 text-white h-screen overflow-hidden">
-  <div class="flex h-full">
+<body class="bg-gradient-to-br from-slate-800 to-slate-950 text-white min-h-screen">
+  <div class="flex min-h-screen">
     <!-- Sidebar -->
-    <aside class="w-16 bg-slate-900 flex flex-col items-center py-6 space-y-8 text-xl">
+    <aside class="w-20 bg-slate-900 flex flex-col items-center py-6 space-y-8 text-xl">
       <i data-feather="home" class="hover:text-violet-400 cursor-pointer"></i>
       <i data-feather="zap" class="hover:text-violet-400 cursor-pointer"></i>
       <i data-feather="users" class="hover:text-violet-400 cursor-pointer"></i>
@@ -24,174 +24,27 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-grow p-8 overflow-y-auto">
-      <h1 class="text-3xl font-bold text-center mb-2">East-West AI Platform</h1>
-      <p class="text-center text-gray-300 mb-10">My AI Workspace</p>
+    <main class="flex-grow p-10">
+      <h1 class="text-4xl font-bold text-center mb-2">East-West AI Platform</h1>
+      <p class="text-center text-gray-300 mb-12">My AI Workspace</p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <!-- Assistant Card Images -->
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/zoe.jpg" alt="Zoe" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Zoe</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/arlo.jpg" alt="Arlo" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Arlo</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/lena.jpg" alt="Lena" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Lena</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/james.jpg" alt="James" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">James</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/ethan.jpg" alt="Ethan" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Ethan</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/aisha.jpg" alt="Aisha" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Aisha</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/ava.jpg" alt="Ava" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Ava</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md transition duration-300 text-center opacity-30 grayscale cursor-not-allowed">
-  <img src="/images/leo.jpg" alt="Leo" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Leo</h3>
-    <p class="text-xs text-gray-400 mb-3">Startup AI Assistant</p>
-    <button class="bg-slate-700 text-sm px-4 py-1 rounded text-gray-400 cursor-not-allowed">Locked</button>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/mia.jpg" alt="Mia" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Mia</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/sarah.jpg" alt="Sarah" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Sarah</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/josiah.jpg" alt="Josiah" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Josiah</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/lucas.jpg" alt="Lucas" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Lucas</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/sophie.jpg" alt="Sophie" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Sophie</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/isaac.jpg" alt="Isaac" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Isaac</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
-        <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-violet-500/20 transition duration-300 text-center">
-  <img src="/images/tyler.jpg" alt="Tyler" class="w-full h-auto">
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white">Tyler</h3>
-    <p class="text-xs text-gray-400 mb-3">AI Assistant</p>
-    <div class="flex justify-center gap-2">
-      <button class="bg-violet-600 text-sm px-3 py-1 rounded">Open</button>
-      <button class="bg-slate-700 border border-violet-500 text-violet-300 text-sm px-3 py-1 rounded">Power-Ups</button>
-    </div>
-  </div>
-</div>
+        <img src="/images/zoe.jpg" alt="Zoe" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/arlo.jpg" alt="Arlo" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/lena.jpg" alt="Lena" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/james.jpg" alt="James" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/ethan.jpg" alt="Ethan" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/aisha.jpg" alt="Aisha" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/ava.jpg" alt="Ava" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/leo.jpg" alt="Leo" class="rounded-xl shadow-xl transition duration-300 opacity-30 grayscale cursor-not-allowed">
+        <img src="/images/mia.jpg" alt="Mia" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/sarah.jpg" alt="Sarah" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/josiah.jpg" alt="Josiah" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/lucas.jpg" alt="Lucas" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/sophie.jpg" alt="Sophie" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/isaac.jpg" alt="Isaac" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="/images/tyler.jpg" alt="Tyler" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
       </div>
     </main>
   </div>
