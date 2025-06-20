@@ -1,205 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Replacement AI Task Board</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-      color: #3b82f6;
-    }
-    .board {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      justify-content: center;
-    }
-    .column {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      width: 300px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .column h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: #333;
-    }
-    .task {
-      background: #e0ecff;
-      padding: 0.5rem;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-    }
-    .task input[type="checkbox"] {
-      margin-right: 0.5rem;
-    }
-    .add-task {
-      margin-top: 1rem;
-      display: flex;
-    }
-    .add-task input {
-      flex: 1;
-      padding: 0.4rem;
-      border: 1px solid #ccc;
-      border-radius: 4px 0 0 4px;
-    }
-    .add-task button {
-      padding: 0.4rem 1rem;
-      background: #3b82f6;
-      color: white;
-      border: none;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-    }
-    .sidebar {
-  width: 250px;
-  height: 100vh;
-  background: #1e293b;
-  color: white;
-  padding: 20px;
-  position: fixed;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 10px 0;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-}
-    #feedback {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #facc15;
-      color: #111;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    #arlo-box {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 280px;
-  font-family: sans-serif;
-}
-
-#arlo-box img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-
-.arlo-info span {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.arlo-info p {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.arlo-info button {
-  background: #10b981;
-  border: none;
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-  </style>
+  <title>East-West AI Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
-<body>
-  <h1>🎯 Replacement AI Task Board</h1>
-<div class="sidebar">
-  <h2>📊 Dashboard</h2>
-  <ul>
-    <li><a href="index.html">🏠 Home</a></li>
-    <li><a href="assistants.html">🤖 My AI Team</a></li>
-    <li><a href="#">📅 Task Board</a></li>
-    <li><a href="#">⚡ Power-Ups</a></li>
-    <li><a href="#">📈 Reports</a></li>
-    <li><a href="#">🧾 Bookkeeping Center</a></li>
-  </ul>
-</div>
-  <div class="main-content" style="margin-left: 270px; padding: 20px;">
-  <!-- Your content here -->
-</div>
 
-  <div class="board">
-    <div class="column" id="todo">
-      <h2>To Do</h2>
-      <div class="add-task">
-        <input type="text" id="newTaskInput" placeholder="New task..." />
-        <button onclick="addTask()">Add</button>
+<body class="bg-gradient-to-br from-slate-800 to-slate-950 text-white h-screen overflow-hidden">
+  <div class="flex h-full">
+    <!-- Sidebar -->
+    <aside class="w-16 bg-slate-900 flex flex-col items-center py-6 space-y-8 text-xl">
+      <i data-feather="home" class="hover:text-violet-400 cursor-pointer"></i>
+      <i data-feather="zap" class="hover:text-violet-400 cursor-pointer"></i>
+      <i data-feather="users" class="hover:text-violet-400 cursor-pointer"></i>
+      <i data-feather="bar-chart-2" class="hover:text-violet-400 cursor-pointer"></i>
+      <i data-feather="book-open" class="hover:text-violet-400 cursor-pointer"></i>
+      <div class="mt-auto">
+        <i data-feather="settings" class="hover:text-violet-400 cursor-pointer"></i>
       </div>
-      <div id="todoTasks"></div>
-    </div>
-    <div class="column">
-      <h2>In Progress</h2>
-      <div class="task"><input type="checkbox" /> Start finance checklist</div>
-    </div>
-    <div class="column">
-      <h2>Done</h2>
-      <div class="task"><input type="checkbox" checked /> Opened this demo ✅</div>
-    </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow p-8 overflow-y-auto">
+      <h1 class="text-3xl font-bold text-center mb-2">East-West AI Platform</h1>
+      <p class="text-center text-gray-300 mb-10">My AI Workspace</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Assistant Cards -->
+        <script>
+          const assistants = [
+            { name: 'Zoe', title: 'Social Media AI Assistant', unlocked: true },
+            { name: 'Arlo', title: 'Finance AI Assistant', unlocked: true },
+            { name: 'Lena', title: 'HR AI Assistant', unlocked: true },
+            { name: 'James', title: 'Project Management Assistant', unlocked: true },
+            { name: 'Isaac', title: 'Sales AI Assistant', unlocked: true },
+            { name: 'Aisha', title: 'Customer Service Assistant', unlocked: true },
+            { name: 'Tyler', title: 'Data Science AI Assistant', unlocked: true },
+            { name: 'Leo', title: 'Startup AI Assistant', unlocked: false },
+          ];
+
+          window.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.grid');
+            assistants.forEach(({ name, title, unlocked }) => {
+              const card = document.createElement('div');
+              card.className = `rounded-2xl p-4 text-center bg-white/5 backdrop-blur border border-white/10 shadow-md transition duration-300 hover:shadow-violet-500/20 ${unlocked ? 'opacity-100' : 'opacity-30 grayscale'}`;
+
+              card.innerHTML = `
+                <div class="w-20 h-20 mx-auto bg-slate-700 rounded-full mb-4"></div>
+                <h2 class="text-lg font-semibold">${name}</h2>
+                <p class="text-xs text-gray-400 mb-4">${title}</p>
+                ${unlocked ? `
+                  <div class="flex justify-center space-x-2">
+                    <button class="bg-violet-600 px-3 py-1 rounded text-sm">Open</button>
+                    <button class="bg-slate-800 px-3 py-1 rounded text-sm border border-violet-500 text-violet-300">Power-Ups</button>
+                  </div>
+                ` : `
+                  <button class="bg-slate-700 px-4 py-1 rounded text-sm text-gray-300 cursor-not-allowed">Locked</button>
+                `}
+              `;
+
+              container.appendChild(card);
+            });
+            feather.replace();
+          });
+        </script>
+      </div>
+    </main>
   </div>
-
-  <div id="feedback" onclick="alert('Thanks for your feedback!')">💬 Feedback</div>
-
-  <script>
-   function generateTasks() {
-  const suggestions = [
-    "🧾 Reconcile VAT return (Apr–Jun)",
-    "📊 Review P&L for last quarter",
-    "📥 Upload client receipts to Xero"
-  ];
-  const box = document.getElementById("todoTasks");
-  suggestions.forEach(text => {
-    const task = document.createElement("div");
-    task.className = "task";
-    task.innerHTML = `<input type="checkbox" /> ${text}`;
-    box.appendChild(task);
-  });
-
-  document.getElementById("arlo-message").innerText = "Here are a few finance tasks to get started!";
-}
-  </script>
-  <div id="arlo-box">
-  <img src="https://i.imgur.com/tXXmJXL.png" alt="Arlo Avatar" />
-  <div class="arlo-info">
-    <strong>Arlo</strong><br />
-    <span>Finance AI Assistant</span>
-    <p id="arlo-message">Hey, need help with bookkeeping tasks?</p>
-    <button onclick="generateTasks()">Ask Arlo</button>
-  </div>
-</div>
 </body>
+
 </html>
