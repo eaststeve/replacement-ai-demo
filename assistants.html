@@ -13,150 +13,48 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
     .card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 2rem 1rem;
+      justify-content: center;
+      padding: 0;
       border-radius: 16px;
-      color: white;
+      overflow: hidden;
       cursor: pointer;
       text-align: center;
-      text-decoration: none;
       transition: transform 0.2s ease;
     }
     .card:hover {
       transform: translateY(-5px);
     }
     .card img {
-      width: 180px;
-      height: 180px;
-      border-radius: 12px;
-      object-fit: cover;
-      margin-bottom: 1rem;
+      width: 100%;
+      display: block;
     }
-    .card h3 {
-      margin: 0.5rem 0 0.2rem;
-      font-size: 1.4rem;
-    }
-    .card p {
-      margin: 0;
-      font-size: 0.95rem;
-    }
-    .bg1 { background: linear-gradient(145deg, #4e54c8, #8f94fb); }
-    .bg2 { background: linear-gradient(145deg, #ff9966, #ff5e62); }
-    .bg3 { background: linear-gradient(145deg, #56ab2f, #a8e063); }
-    .bg4 { background: linear-gradient(145deg, #614385, #516395); }
-    .bg5 { background: linear-gradient(145deg, #00c6ff, #0072ff); }
-    .bg6 { background: linear-gradient(145deg, #f7971e, #ffd200); }
-    .bg7 { background: linear-gradient(145deg, #fc5c7d, #6a82fb); }
-    .bg8 { background: linear-gradient(145deg, #bdc3c7, #2c3e50); }
-    .bg9 { background: linear-gradient(145deg, #f2709c, #ff9472); }
-    .bg10 { background: linear-gradient(145deg, #00b09b, #96c93d); }
-    .bg11 { background: linear-gradient(145deg, #d38312, #a83279); }
-    .bg12 { background: linear-gradient(145deg, #cc2b5e, #753a88); }
-    .bg13 { background: linear-gradient(145deg, #43cea2, #185a9d); }
-    .bg14 { background: linear-gradient(145deg, #c33764, #1d2671); }
-    .bg15 { background: linear-gradient(145deg, #de6161, #2657eb); }
   </style>
 </head>
 <body>
   <h1>Meet Your AI Assistant Team</h1>
   <div class="grid">
-    <a href="#" class="card bg1">
-      <img src="images/arlo.jpg" alt="Arlo" />
-      <h3>Arlo</h3>
-      <p>Finance AI Assistant</p>
-      <p>Helps manage bookkeeping, VAT, and cash flow insights.</p>
-    </a>
-    <a href="#" class="card bg2">
-      <img src="images/lena.jpg" alt="Lena" />
-      <h3>Lena</h3>
-      <p>HR AI Assistant</p>
-      <p>Tracks staff changes, onboarding, and HR docs.</p>
-    </a>
-    <a href="#" class="card bg3">
-      <img src="images/zoe.jpg" alt="Zoe" />
-      <h3>Zoe</h3>
-      <p>Social Media AI Assistant</p>
-      <p>Plans posts, analyses engagement, and writes captions.</p>
-    </a>
-    <a href="#" class="card bg4">
-      <img src="images/james.jpg" alt="James" />
-      <h3>James</h3>
-      <p>Project Management AI</p>
-      <p>Helps organize client workflows, timelines and deliverables.</p>
-    </a>
-    <a href="#" class="card bg5">
-      <img src="images/Ethan.jpg" alt="Ethan" />
-      <h3>Ethan</h3>
-      <p>eCommerce AI Assistant</p>
-      <p>Coming soon</p>
-    </a>
-    <a href="#" class="card bg6">
-      <img src="images/isaac.jpg" alt="Isaac" />
-      <h3>Isaac</h3>
-      <p>Sales AI Assistant</p>
-      <p>Tracks pipelines, follows leads, and logs calls.</p>
-    </a>
-    <a href="#" class="card bg7">
-      <img src="images/tyler.jpg" alt="Tyler" />
-      <h3>Tyler</h3>
-      <p>Data Science AI Assistant</p>
-      <p>Creates dashboards and runs performance analysis.</p>
-    </a>
-    <a href="#" class="card bg8">
-      <img src="images/aisha.jpg" alt="Aisha" />
-      <h3>Aisha</h3>
-      <p>Customer Service AI</p>
-      <p>Handles queries, builds FAQ, and reminders.</p>
-    </a>
-    <a href="#" class="card bg9">
-      <img src="images/Ava.jpg" alt="Ava" />
-      <h3>Ava</h3>
-      <p>Service AI Assistant</p>
-      <p>Chases missing paperwork and reminds clients.</p>
-    </a>
-    <a href="#" class="card bg10">
-      <img src="images/leo.jpg" alt="Leo" />
-      <h3>Leo</h3>
-      <p>Startup AI Assistant</p>
-      <p>Helps new businesses track key steps.</p>
-    </a>
-    <a href="#" class="card bg11">
-      <img src="images/mia.jpg" alt="Mia" />
-      <h3>Mia</h3>
-      <p>Cybersecurity AI Assistant</p>
-      <p>Flags risks, reminds of GDPR tasks, and password safety.</p>
-    </a>
-    <a href="#" class="card bg12">
-      <img src="images/sarah.jpg" alt="Sarah" />
-      <h3>Sarah</h3>
-      <p>Staff AI Assistant</p>
-      <p>Reminds staff of missing items and policies.</p>
-    </a>
-    <a href="#" class="card bg13">
-      <img src="images/josiah.jpg" alt="Josiah" />
-      <h3>Josiah</h3>
-      <p>Content AI Assistant</p>
-      <p>Writes newsletter and campaign material.</p>
-    </a>
-    <a href="#" class="card bg14">
-      <img src="images/Lucas.jpg" alt="Lucas" />
-      <h3>Lucas</h3>
-      <p>Business AI Assistant</p>
-      <p>Helps with reporting, decision support and strategy.</p>
-    </a>
-    <a href="#" class="card bg15">
-      <img src="images/Sophie.jpg" alt="Sophie" />
-      <h3>Sophie</h3>
-      <p>AI Assistant</p>
-      <p>General support for tasks and overflow requests.</p>
-    </a>
+    <a href="#" class="card"><img src="images/arlo.jpg" alt="Arlo" /></a>
+    <a href="#" class="card"><img src="images/lena.jpg" alt="Lena" /></a>
+    <a href="#" class="card"><img src="images/zoe.jpg" alt="Zoe" /></a>
+    <a href="#" class="card"><img src="images/james.jpg" alt="James" /></a>
+    <a href="#" class="card"><img src="images/ethan.jpg" alt="Ethan" /></a>
+    <a href="#" class="card"><img src="images/isaac.jpg" alt="Isaac" /></a>
+    <a href="#" class="card"><img src="images/tyler.jpg" alt="Tyler" /></a>
+    <a href="#" class="card"><img src="images/aisha.jpg" alt="Aisha" /></a>
+    <a href="#" class="card"><img src="images/ava.jpg" alt="Ava" /></a>
+    <a href="#" class="card"><img src="images/leo.jpg" alt="Leo" /></a>
+    <a href="#" class="card"><img src="images/mia.jpg" alt="Mia" /></a>
+    <a href="#" class="card"><img src="images/sarah.jpg" alt="Sarah" /></a>
+    <a href="#" class="card"><img src="images/josiah.jpg" alt="Josiah" /></a>
+    <a href="#" class="card"><img src="images/lucas.jpg" alt="Lucas" /></a>
+    <a href="#" class="card"><img src="images/sophie.jpg" alt="Sophie" /></a>
   </div>
 </body>
 </html>
