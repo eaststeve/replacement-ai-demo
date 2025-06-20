@@ -29,47 +29,26 @@
       <p class="text-center text-gray-300 mb-10">My AI Workspace</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Assistant Cards -->
-        <script>
-          const assistants = [
-            { name: 'Zoe', title: 'Social Media AI Assistant', unlocked: true },
-            { name: 'Arlo', title: 'Finance AI Assistant', unlocked: true },
-            { name: 'Lena', title: 'HR AI Assistant', unlocked: true },
-            { name: 'James', title: 'Project Management Assistant', unlocked: true },
-            { name: 'Isaac', title: 'Sales AI Assistant', unlocked: true },
-            { name: 'Aisha', title: 'Customer Service Assistant', unlocked: true },
-            { name: 'Tyler', title: 'Data Science AI Assistant', unlocked: true },
-            { name: 'Leo', title: 'Startup AI Assistant', unlocked: false },
-          ];
-
-          window.addEventListener('DOMContentLoaded', () => {
-            const container = document.querySelector('.grid');
-            assistants.forEach(({ name, title, unlocked }) => {
-              const card = document.createElement('div');
-              card.className = `rounded-2xl p-4 text-center bg-white/5 backdrop-blur border border-white/10 shadow-md transition duration-300 hover:shadow-violet-500/20 ${unlocked ? 'opacity-100' : 'opacity-30 grayscale'}`;
-
-              card.innerHTML = `
-                <div class="w-20 h-20 mx-auto bg-slate-700 rounded-full mb-4"></div>
-                <h2 class="text-lg font-semibold">${name}</h2>
-                <p class="text-xs text-gray-400 mb-4">${title}</p>
-                ${unlocked ? `
-                  <div class="flex justify-center space-x-2">
-                    <button class="bg-violet-600 px-3 py-1 rounded text-sm">Open</button>
-                    <button class="bg-slate-800 px-3 py-1 rounded text-sm border border-violet-500 text-violet-300">Power-Ups</button>
-                  </div>
-                ` : `
-                  <button class="bg-slate-700 px-4 py-1 rounded text-sm text-gray-300 cursor-not-allowed">Locked</button>
-                `}
-              `;
-
-              container.appendChild(card);
-            });
-            feather.replace();
-          });
-        </script>
+        <!-- Assistant Card Images -->
+        <img src="/images/zoe.jpg" alt="Zoe" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/arlo.jpg" alt="Arlo" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/lena.jpg" alt="Lena" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/james.jpg" alt="James" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/ethan.jpg" alt="Ethan" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/aisha.jpg" alt="Aisha" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/ava.jpg" alt="Ava" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/leo.jpg" alt="Leo" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300 opacity-30 grayscale cursor-not-allowed">
+        <img src="/images/mia.jpg" alt="Mia" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/sarah.jpg" alt="Sarah" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/josiah.jpg" alt="Josiah" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/lucas.jpg" alt="Lucas" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/sophie.jpg" alt="Sophie" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/isaac.jpg" alt="Isaac" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
+        <img src="/images/tyler.jpg" alt="Tyler" class="rounded-2xl shadow-md hover:shadow-violet-500/20 transition duration-300">
       </div>
     </main>
   </div>
+  <script>feather.replace();</script>
 </body>
 
 </html>
