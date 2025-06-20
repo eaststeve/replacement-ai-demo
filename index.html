@@ -7,6 +7,27 @@
   <title>East-West AI Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    function openSettings() {
+      document.getElementById('settings-panel').classList.remove('hidden');
+    }
+    function closeSettings() {
+      document.getElementById('settings-panel').classList.add('hidden');
+    }
+    function applySettings() {
+      const name = document.getElementById('owner-name').value;
+      const bg = document.getElementById('bg-color').value;
+      if (name) localStorage.setItem('workspaceName', name);
+      if (bg) localStorage.setItem('bgColor', bg);
+      location.reload();
+    }
+    window.onload = function () {
+      const name = localStorage.getItem('workspaceName') || 'My AI Workspace';
+      document.getElementById('workspace-title').innerText = name;
+      const bgColor = localStorage.getItem('bgColor');
+      if (bgColor) document.body.className = bgColor;
+    }
+  </script>
 </head>
 
 <body class="bg-gradient-to-br from-slate-800 to-slate-950 text-white min-h-screen">
@@ -19,14 +40,14 @@
       <i data-feather="bar-chart-2" class="hover:text-violet-400 cursor-pointer"></i>
       <i data-feather="book-open" class="hover:text-violet-400 cursor-pointer"></i>
       <div class="mt-auto">
-        <i data-feather="settings" class="hover:text-violet-400 cursor-pointer"></i>
+        <i data-feather="settings" class="hover:text-violet-400 cursor-pointer" onclick="openSettings()"></i>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-grow p-10">
       <h1 class="text-4xl font-bold text-center mb-2">East-West AI Platform</h1>
-      <p class="text-center text-gray-300 mb-12">My AI Workspace</p>
+      <p id="workspace-title" class="text-center text-gray-300 mb-12">My AI Workspace</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <!-- Assistant Card Images -->
@@ -37,7 +58,7 @@
         <img src="images/ethan.jpg" alt="Ethan" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
         <img src="images/aisha.jpg" alt="Aisha" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
         <img src="images/ava.jpg" alt="Ava" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-        <img src="images/leo.jpg" alt="Leo" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+        <img src="images/leo.jpg" alt="Leo" class="rounded-xl shadow-xl transition duration-300 opacity-30 grayscale cursor-not-allowed">
         <img src="images/mia.jpg" alt="Mia" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
         <img src="images/sarah.jpg" alt="Sarah" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
         <img src="images/elsa.jpg" alt="Elsa" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
@@ -47,6 +68,28 @@
         <img src="images/tyler.jpg" alt="Tyler" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
       </div>
     </main>
+  </div>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white text-black p-6 rounded-xl w-96 space-y-4">
+      <h2 class="text-xl font-bold">Settings</h2>
+      <label class="block">Your Name:
+        <input id="owner-name" class="w-full border p-2 rounded mt-1" placeholder="e.g. Stephen's Workspace">
+      </label>
+      <label class="block">Background Theme:
+        <select id="bg-color" class="w-full border p-2 rounded mt-1">
+          <option value="">Default (Slate)</option>
+          <option value="bg-gradient-to-br from-indigo-800 to-blue-900">Indigo Blue</option>
+          <option value="bg-gradient-to-br from-pink-700 to-red-900">Pink Red</option>
+          <option value="bg-gradient-to-br from-green-700 to-teal-900">Green Teal</option>
+        </select>
+      </label>
+      <div class="flex justify-end space-x-4">
+        <button onclick="closeSettings()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+        <button onclick="applySettings()" class="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-700">Save</button>
+      </div>
+    </div>
   </div>
   <script>feather.replace();</script>
 </body>
