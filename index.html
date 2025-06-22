@@ -16,7 +16,7 @@
     }
     function applySettings() {
       const name = document.getElementById('owner-name').value;
-      const bg = document.getElementById('bg-black').value;
+      const bg = document.getElementById('bg-color').value;
       if (name) localStorage.setItem('workspaceName', name);
       if (bg) localStorage.setItem('bgColor', bg);
       location.reload();
