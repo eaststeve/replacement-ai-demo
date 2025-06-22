@@ -25,7 +25,7 @@
       const name = localStorage.getItem('workspaceName') || 'My AI Workspace';
       document.getElementById('workspace-title').innerText = name;
       const bgColor = localStorage.getItem('bgColor');
-      if (bgColor) document.body.className = bgColor;
+      if (bgColor) document.body.classList.add(...bgColor.split(' '));
     }
   </script>
 </head>
