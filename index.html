@@ -21,13 +21,19 @@
       if (bg) localStorage.setItem('bgColor', bg);
       location.reload();
     }
+    window.onload = function () {
+      const name = localStorage.getItem('workspaceName') || 'My AI Workspace';
+      document.getElementById('workspace-title').innerText = name;
+      const bgColor = localStorage.getItem('bgColor');
+      if (bgColor) document.body.classList.add(...bgColor.split(' '));
+    }
   </script>
 </head>
 
-<body class="bg-[#8C8CCF] text-white min-h-screen">
+<body class="min-h-screen text-white" style="background-color: #8C8CCF;">
   <div class="flex min-h-screen">
     <!-- Sidebar -->
-    <aside class="w-20 bg-[#1F395C] text-white flex flex-col py-6 space-y-6 fixed top-0 left-0 h-full z-40">
+    <aside class="w-20 text-white flex flex-col py-6 space-y-6 fixed top-0 left-0 h-full z-40" style="background-color: #1F395C;">
       <div class="text-center font-bold text-lg mb-4">☰</div>
       <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-yellow-300 relative">
         <i data-feather="home"></i>
@@ -56,7 +62,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-grow p-10 pl-32 bg-[#8C8CCF]">
+    <main class="flex-grow p-10 pl-32" style="background-color: #8C8CCF;">
       <h1 class="text-4xl font-bold text-center mb-2">East-West AI Platform</h1>
       <p id="workspace-title" class="text-center text-gray-300 mb-12">My AI Workspace</p>
 
