@@ -17,20 +17,56 @@
     function applySettings() {
       const name = document.getElementById('owner-name').value;
       const bg = document.getElementById('bg-color').value;
+      const lang = document.getElementById('language').value;
       if (name) localStorage.setItem('workspaceName', name);
       if (bg) localStorage.setItem('bgColor', bg);
+      if (lang) localStorage.setItem('language', lang);
       location.reload();
     }
     window.onload = function () {
       const name = localStorage.getItem('workspaceName') || 'My AI Workspace';
-      document.getElementById('workspace-title').innerText = name;
       const bgColor = localStorage.getItem('bgColor');
+      const lang = localStorage.getItem('language');
+      if (!name || !lang) {
+        document.getElementById('welcome-modal').classList.remove('hidden');
+      }
+      document.getElementById('workspace-title').innerText = name;
       if (bgColor) document.body.classList.add(...bgColor.split(' '));
+    }
+    function saveWelcomeSettings() {
+      const name = document.getElementById('welcome-name').value;
+      const lang = document.getElementById('welcome-language').value;
+      if (name && lang) {
+        localStorage.setItem('workspaceName', name);
+        localStorage.setItem('language', lang);
+        location.reload();
+      }
     }
   </script>
 </head>
 
 <body class="min-h-screen text-white" style="background-color: #8C8CCF;">
+  <!-- Welcome Modal -->
+  <div id="welcome-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+    <div class="bg-white text-black p-8 rounded-xl w-96 space-y-6">
+      <h2 class="text-2xl font-bold">Welcome to East-West AI</h2>
+      <label class="block">Your Name:
+        <input id="welcome-name" class="w-full border p-2 rounded mt-1" placeholder="e.g. Stephen's Workspace">
+      </label>
+      <label class="block">Language:
+        <select id="welcome-language" class="w-full border p-2 rounded mt-1">
+          <option value="">Select Language</option>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+        </select>
+      </label>
+      <div class="flex justify-end">
+        <button onclick="saveWelcomeSettings()" class="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-700">Continue</button>
+      </div>
+    </div>
+  </div>
+
   <div class="flex min-h-screen">
     <!-- Sidebar -->
     <aside class="w-20 text-white flex flex-col py-6 space-y-6 fixed top-0 left-0 h-full z-40 justify-between" style="background-color: #1F395C;">
@@ -111,6 +147,13 @@
           <option value="bg-gradient-to-br from-indigo-800 to-blue-900">Indigo Blue</option>
           <option value="bg-gradient-to-br from-pink-700 to-red-900">Pink Red</option>
           <option value="bg-gradient-to-br from-green-700 to-teal-900">Green Teal</option>
+        </select>
+      </label>
+      <label class="block">Language:
+        <select id="language" class="w-full border p-2 rounded mt-1">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
         </select>
       </label>
       <div class="flex justify-end space-x-4">
