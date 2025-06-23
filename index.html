@@ -195,18 +195,31 @@
   </div>
 
   <!-- Settings Panel -->
-  <div id="settings-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white text-black p-6 rounded-xl w-96 space-y-4">
-      <h2 class="text-xl font-bold">Settings</h2>
-      <label class="block">Your Name:
+<div id="settings-panel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white text-black p-6 rounded-xl w-full max-w-xl space-y-6 overflow-y-auto max-h-[90vh]">
+
+    <h2 class="text-2xl font-bold">Settings</h2>
+
+    <!-- 🎨 Basic UI Settings -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">🎨 Basic UI Settings</h3>
+      <label class="block mb-2">Your Name:
         <input id="owner-name" class="w-full border p-2 rounded mt-1" placeholder="e.g. Stephen's Workspace">
       </label>
-      <label class="block">Background Theme:
+      <label class="block mb-2">Background Theme:
         <select id="bg-color" class="w-full border p-2 rounded mt-1">
           <option value="">Default (Slate)</option>
           <option value="bg-gradient-to-br from-indigo-800 to-blue-900">Indigo Blue</option>
           <option value="bg-gradient-to-br from-pink-700 to-red-900">Pink Red</option>
           <option value="bg-gradient-to-br from-green-700 to-teal-900">Green Teal</option>
+        </select>
+      </label>
+      <label class="block mb-2">Sidebar Colour:
+        <select id="sidebar-color" class="w-full border p-2 rounded mt-1">
+          <option value="">Default</option>
+          <option value="bg-gray-800">Dark Gray</option>
+          <option value="bg-sky-800">Sky Blue</option>
+          <option value="bg-lime-700">Lime Green</option>
         </select>
       </label>
       <label class="block">Language:
@@ -225,12 +238,80 @@
           <option value="hi">Hindi</option>
         </select>
       </label>
-      <div class="flex justify-end space-x-2 pt-4">
-  <button id="cancel-button" onclick="closeSettings()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-  <button id="save-button" onclick="applySettings()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Save</button>
-</div>
+    </div>
+
+    <!-- 🧠 Assistant Toggles -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">🧠 Assistant Preferences</h3>
+      <label class="block"><input type="checkbox" id="toggle-suggestions" class="mr-2">Enable Assistant Suggestions</label>
+      <label class="block"><input type="checkbox" id="mute-sounds" class="mr-2">Mute Assistant Sounds</label>
+      <label class="block"><input type="checkbox" id="task-memory" class="mr-2">Remember Tasks Across Sessions</label>
+      <label class="block"><input type="checkbox" id="smart-suggestions" class="mr-2">Enable Smart Suggestions</label>
+      <label class="block"><input type="checkbox" id="training-overlay" class="mr-2">Show Tips / Training Overlay</label>
+    </div>
+
+    <!-- 📩 Notifications -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">📩 Notifications</h3>
+      <label class="block"><input type="checkbox" id="email-notifs" class="mr-2">Email Notifications</label>
+      <label class="block"><input type="checkbox" id="inapp-notifs" class="mr-2">In-App Notifications</label>
+      <label class="block mb-2">Digest Frequency:
+        <select id="digest-frequency" class="w-full border p-2 rounded mt-1">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="none">None</option>
+        </select>
+      </label>
+      <label class="block"><input type="checkbox" id="notify-powerups" class="mr-2">Notify on New Powerups</label>
+      <label class="block"><input type="checkbox" id="notify-assistant-updates" class="mr-2">Notify on Assistant Updates</label>
+    </div>
+
+    <!-- 🛠️ System Preferences -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">🛠️ System Preferences</h3>
+      <label class="block mb-2">Theme Mode:
+        <select id="theme-mode" class="w-full border p-2 rounded mt-1">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="system">System</option>
+        </select>
+      </label>
+      <label class="block"><input type="checkbox" id="show-debug" class="mr-2">Show Debug Console (Dev Mode)</label>
+      <label class="block"><input type="checkbox" id="beta-optin" class="mr-2">Opt into Beta Features</label>
+      <div class="mt-2 flex gap-4">
+        <button onclick="exportSettings()" class="bg-blue-600 text-white px-3 py-1 rounded">Export</button>
+        <button onclick="importSettings()" class="bg-blue-600 text-white px-3 py-1 rounded">Import</button>
+        <button onclick="resetSettings()" class="bg-red-600 text-white px-3 py-1 rounded">Reset All</button>
+      </div>
+    </div>
+
+    <!-- 🧾 Advanced Preferences -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">🧾 Advanced Preferences</h3>
+      <label class="block mb-2">Default Currency:
+        <select id="currency-selector" class="w-full border p-2 rounded mt-1">
+          <option value="GBP">GBP (£)</option>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+        </select>
+      </label>
+      <label class="block mb-2">Preferred Units:
+        <select id="unit-selector" class="w-full border p-2 rounded mt-1">
+          <option value="metric">Kilometres</option>
+          <option value="imperial">Miles</option>
+        </select>
+      </label>
+      <label class="block"><input type="checkbox" id="experimental-ai" class="mr-2">Enable Experimental Assistants</label>
+      <label class="block"><input type="checkbox" id="perf-logging" class="mr-2">Turn on Performance Logging</label>
+    </div>
+
+    <!-- Footer Buttons -->
+    <div class="flex justify-end space-x-2 pt-4">
+      <button id="cancel-button" onclick="closeSettings()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+      <button id="save-button" onclick="applySettings()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Save</button>
     </div>
   </div>
+</div>
   <script>feather.replace();</script>
 </body>
 
