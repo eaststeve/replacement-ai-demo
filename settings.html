@@ -1,158 +1,129 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-100">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Settings</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    .tab-content { display: none; }
+    .tab-active { display: block; }
+  </style>
 </head>
 
 <body class="min-h-screen text-white" style="background-color: #8C8CCF;">
-
   <div class="flex min-h-screen">
-
     <!-- Sidebar -->
     <aside class="w-20 text-white flex flex-col py-6 space-y-6 fixed top-0 left-0 h-full z-40 justify-between" style="background-color: #1F395C;">
       <div>
-        <!-- Sidebar Header -->
         <div class="flex justify-center items-center mb-4">
           <i data-feather="menu" class="cursor-pointer"></i>
         </div>
-
-        <!-- Sidebar Icons -->
         <div class="flex flex-col space-y-6 mt-96">
-          <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
+          <a href="index.html" class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
             <i data-feather="home"></i>
             <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Home</span>
-          </div>
-          <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
-            <i data-feather="zap"></i>
-            <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Apps</span>
-          </div>
-          <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
-            <i data-feather="users"></i>
-            <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Team</span>
-          </div>
-          <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
-            <i data-feather="bar-chart-2"></i>
-            <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Stats</span>
-          </div>
-          <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
-            <i data-feather="book-open"></i>
-            <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Docs</span>
-          </div>
+          </a>
         </div>
       </div>
-
-      <!-- Settings Icon -->
       <a href="settings.html" class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative mb-6">
         <i data-feather="settings"></i>
         <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Settings</span>
       </a>
     </aside>
 
-    <!-- Main Settings Panel -->
-    <main class="flex-grow p-10 pl-32" style="background-color: #8C8CCF;">
-      <div class="bg-white text-black p-8 rounded-xl w-full max-w-3xl shadow space-y-6 mx-auto">
-        <h1 class="text-2xl font-bold text-center">Settings</h1>
+    <!-- Main Content -->
+    <main class="flex-grow p-10 pl-32">
+      <h1 class="text-3xl font-bold text-center mb-6">Settings</h1>
 
-        <!-- General Settings -->
-        <section>
-          <h2 class="text-xl font-semibold mb-2">🔧 General Settings</h2>
-          <label class="block mb-3">
-            Business / Personal Name:
-            <input id="owner-name" class="w-full mt-1 p-2 border rounded" placeholder="e.g. Stephen Trautman">
-          </label>
-          <label class="block mb-3">
-            Background Colour:
-            <select id="bg-color" class="w-full mt-1 p-2 border rounded">
-              <option value="">Default (Slate)</option>
-              <option value="indigo">Indigo Blue</option>
-              <option value="pink">Pink Red</option>
-              <option value="green">Green Teal</option>
-            </select>
-          </label>
-          <label class="block mb-3">
-            Sidebar Colour:
-            <input type="color" id="sidebar-color" class="w-12 h-10 border rounded">
-          </label>
-          <label class="block mb-3">
-            Language:
-            <select id="language" class="w-full mt-1 p-2 border rounded">
-              <option value="en">English</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-            </select>
-          </label>
-        </section>
+      <!-- Tab Buttons -->
+      <div class="flex justify-center space-x-4 mb-6">
+        <button onclick="showTab('general')" class="bg-white text-black px-4 py-2 rounded shadow">General</button>
+        <button onclick="showTab('assistant')" class="bg-white text-black px-4 py-2 rounded shadow">Assistant</button>
+        <button onclick="showTab('notifications')" class="bg-white text-black px-4 py-2 rounded shadow">Notifications</button>
+        <button onclick="showTab('system')" class="bg-white text-black px-4 py-2 rounded shadow">System</button>
+        <button onclick="showTab('advanced')" class="bg-white text-black px-4 py-2 rounded shadow">Advanced</button>
+      </div>
 
-        <!-- Assistant Toggles -->
-        <section>
-          <h2 class="text-xl font-semibold mb-2">🤖 Assistant Preferences</h2>
-          <label class="block"><input type="checkbox" class="mr-2">Enable Assistant Suggestions</label>
-          <label class="block"><input type="checkbox" class="mr-2">Mute Assistant Sounds</label>
-          <label class="block"><input type="checkbox" class="mr-2">Remember Tasks Across Sessions</label>
-          <label class="block"><input type="checkbox" class="mr-2">Smart Suggestions</label>
-          <label class="block"><input type="checkbox" class="mr-2">Show Tips / Training Overlay</label>
-        </section>
+      <!-- Tabs -->
+      <div id="general" class="tab-content tab-active space-y-4">
+        <h2 class="text-xl font-semibold">🔧 General Settings</h2>
+        <input class="w-full p-2 rounded text-black" placeholder="Business / Personal Name">
+        <select class="w-full p-2 rounded text-black">
+          <option value="">Background Colour</option>
+          <option value="indigo">Indigo</option>
+          <option value="pink">Pink</option>
+          <option value="green">Green</option>
+        </select>
+        <input type="color" class="w-16 h-10">
+        <select class="w-full p-2 rounded text-black">
+          <option>English</option>
+          <option>Spanish</option>
+        </select>
+      </div>
 
-        <!-- Notifications -->
-        <section>
-          <h2 class="text-xl font-semibold mb-2">🔔 Notifications</h2>
-          <label class="block"><input type="checkbox" class="mr-2">Email Notifications</label>
-          <label class="block"><input type="checkbox" class="mr-2">In-App Notifications</label>
-          <label class="block"><input type="checkbox" class="mr-2">Notify When Powerups Released</label>
-          <label class="block"><input type="checkbox" class="mr-2">Notify When Assistant Updates</label>
-          <label class="block mt-2">Digest Frequency:
-            <select class="w-full mt-1 p-2 border rounded">
-              <option>Daily</option>
-              <option>Weekly</option>
-              <option>None</option>
-            </select>
-          </label>
-        </section>
+      <div id="assistant" class="tab-content space-y-2">
+        <h2 class="text-xl font-semibold">🤖 Assistant Preferences</h2>
+        <label><input type="checkbox" class="mr-2"> Enable Suggestions</label><br>
+        <label><input type="checkbox" class="mr-2"> Mute Sounds</label><br>
+        <label><input type="checkbox" class="mr-2"> Remember Tasks</label><br>
+        <label><input type="checkbox" class="mr-2"> Smart Suggestions</label><br>
+        <label><input type="checkbox" class="mr-2"> Show Tips</label>
+      </div>
 
-        <!-- System Preferences -->
-        <section>
-          <h2 class="text-xl font-semibold mb-2">⚙️ System Preferences</h2>
-          <label class="block"><input type="checkbox" class="mr-2">Dark Mode</label>
-          <label class="block"><input type="checkbox" class="mr-2">Export / Import Preferences</label>
-          <label class="block"><input type="checkbox" class="mr-2">Reset All Settings</label>
-          <label class="block"><input type="checkbox" class="mr-2">Show Debug Console</label>
-          <label class="block"><input type="checkbox" class="mr-2">Beta Features Opt-in</label>
-        </section>
+      <div id="notifications" class="tab-content space-y-2">
+        <h2 class="text-xl font-semibold">🔔 Notifications</h2>
+        <label><input type="checkbox" class="mr-2"> Email Notifications</label><br>
+        <label><input type="checkbox" class="mr-2"> In-App Notifications</label><br>
+        <label><input type="checkbox" class="mr-2"> Notify When Powerups Released</label><br>
+        <label><input type="checkbox" class="mr-2"> Notify When Assistant Updates</label><br>
+        <select class="w-full p-2 rounded text-black">
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>None</option>
+        </select>
+      </div>
 
-        <!-- Advanced -->
-        <section>
-          <h2 class="text-xl font-semibold mb-2">🧾 Advanced</h2>
-          <label class="block">Default Currency:
-            <select class="w-full mt-1 p-2 border rounded">
-              <option>GBP (£)</option>
-              <option>USD ($)</option>
-              <option>EUR (€)</option>
-            </select>
-          </label>
-          <label class="block mt-2">Preferred Units:
-            <select class="w-full mt-1 p-2 border rounded">
-              <option>Kilometres</option>
-              <option>Miles</option>
-            </select>
-          </label>
-          <label class="block mt-2"><input type="checkbox" class="mr-2">Enable Experimental Assistants</label>
-          <label class="block"><input type="checkbox" class="mr-2">Turn on Performance Logging</label>
-        </section>
+      <div id="system" class="tab-content space-y-2">
+        <h2 class="text-xl font-semibold">⚙️ System Preferences</h2>
+        <label><input type="checkbox" class="mr-2"> Dark Mode</label><br>
+        <label><input type="checkbox" class="mr-2"> Export / Import Preferences</label><br>
+        <label><input type="checkbox" class="mr-2"> Reset All Settings</label><br>
+        <label><input type="checkbox" class="mr-2"> Show Debug Console</label><br>
+        <label><input type="checkbox" class="mr-2"> Beta Features Opt-in</label>
+      </div>
 
-        <!-- Save/Cancel -->
-        <div class="pt-4 flex justify-end space-x-4">
-          <button class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-          <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Save Settings</button>
-        </div>
+      <div id="advanced" class="tab-content space-y-2">
+        <h2 class="text-xl font-semibold">🧾 Advanced</h2>
+        <select class="w-full p-2 rounded text-black">
+          <option>GBP (£)</option>
+          <option>USD ($)</option>
+        </select>
+        <select class="w-full p-2 rounded text-black">
+          <option>Kilometres</option>
+          <option>Miles</option>
+        </select>
+        <label><input type="checkbox" class="mr-2"> Experimental Assistants</label><br>
+        <label><input type="checkbox" class="mr-2"> Performance Logging</label>
+      </div>
+
+      <div class="flex justify-end mt-6">
+        <button class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+        <button class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save</button>
       </div>
     </main>
   </div>
 
-  <script>feather.replace();</script>
+  <script>
+    feather.replace();
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('tab-active'));
+      document.getElementById(tabId).classList.add('tab-active');
+    }
+  </script>
 </body>
+
 </html>
