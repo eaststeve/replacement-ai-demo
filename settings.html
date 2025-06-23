@@ -162,19 +162,41 @@
       </div>
 
       <!-- Bottom Buttons -->
-      <div class="pt-6 flex justify-end space-x-4">
-        <button class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-        <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Save Settings</button>
+      <div class="flex justify-end mt-6">
+        <button onclick="location.reload()" class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+        <button id="saveSettings" class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Save</button>
       </div>
-    </div>
+    </main>
   </div>
+
   <script>
     feather.replace();
+
     function showTab(tabId) {
       const tabs = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => tab.classList.remove('tab-active'));
       document.getElementById(tabId).classList.add('tab-active');
     }
+
+    document.getElementById("saveSettings").addEventListener("click", () => {
+      const preferences = {
+        name: document.getElementById("ownerName").value,
+        colour: document.getElementById("bgColor").value,
+        language: document.getElementById("language").value,
+        assistant: Array.from(document.querySelectorAll(".assistant")).map(el => el.checked),
+        notifications: Array.from(document.querySelectorAll(".notification")).map(el => el.checked),
+        notificationFreq: document.getElementById("digestFreq").value,
+        system: Array.from(document.querySelectorAll(".system")).map(el => el.checked),
+        advanced: {
+          currency: document.getElementById("currency").value,
+          distance: document.getElementById("units").value,
+          flags: Array.from(document.querySelectorAll(".advanced")).map(el => el.checked)
+        }
+      };
+      localStorage.setItem("userSettings", JSON.stringify(preferences));
+      alert("Settings saved!");
+    });
   </script>
 </body>
+
 </html>
