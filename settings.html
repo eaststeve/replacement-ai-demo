@@ -4,21 +4,38 @@
   <meta charset="UTF-8">
   <title>Settings</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function openTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+      tabs.forEach(tab => tab.classList.add('hidden'));
+      buttons.forEach(btn => btn.classList.remove('text-blue-600'));
+      document.getElementById(tabId).classList.remove('hidden');
+      event.target.classList.add('text-blue-600');
+    }
+  </script>
 </head>
 <body class="min-h-screen flex items-center justify-center text-black">
 
   <div class="bg-white p-8 rounded-xl w-full max-w-2xl shadow space-y-6">
     <h1 class="text-2xl font-bold text-center">Settings</h1>
 
-    <!-- General Settings -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">🔧 General Settings</h2>
-      <label class="block mb-3">
-        Business / Personal Name:
-        <input id="owner-name" class="w-full mt-1 p-2 border rounded" placeholder="e.g. Stephen Trautman">
+    <!-- Tab Nav -->
+    <div class="flex space-x-4 border-b pb-2 mb-4 justify-center">
+      <button class="tab-button text-blue-600 font-semibold" onclick="openTab('tab-ui')">Basic UI</button>
+      <button class="tab-button" onclick="openTab('tab-assistant')">Assistant</button>
+      <button class="tab-button" onclick="openTab('tab-notify')">Notifications</button>
+      <button class="tab-button" onclick="openTab('tab-system')">System</button>
+      <button class="tab-button" onclick="openTab('tab-advanced')">Advanced</button>
+    </div>
+
+    <!-- Basic UI Tab -->
+    <section id="tab-ui" class="tab-content space-y-4">
+      <h2 class="text-xl font-semibold">🎨 Basic UI Settings</h2>
+      <label class="block">Your Name:
+        <input id="owner-name" class="w-full mt-1 p-2 border rounded" placeholder="e.g. Stephen's Workspace">
       </label>
-      <label class="block mb-3">
-        Background Colour:
+      <label class="block">Background Theme:
         <select id="bg-color" class="w-full mt-1 p-2 border rounded">
           <option value="">Default (Slate)</option>
           <option value="indigo">Indigo Blue</option>
@@ -26,12 +43,10 @@
           <option value="green">Green Teal</option>
         </select>
       </label>
-      <label class="block mb-3">
-        Sidebar Colour:
+      <label class="block">Sidebar Colour:
         <input type="color" id="sidebar-color" class="w-12 h-10 border rounded">
       </label>
-      <label class="block mb-3">
-        Language:
+      <label class="block">Language:
         <select id="language" class="w-full mt-1 p-2 border rounded">
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -41,19 +56,19 @@
       </label>
     </section>
 
-    <!-- Assistant Toggles -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">🤖 Assistant Preferences</h2>
+    <!-- Assistant Preferences Tab -->
+    <section id="tab-assistant" class="tab-content hidden space-y-2">
+      <h2 class="text-xl font-semibold">🤖 Assistant Preferences</h2>
       <label class="block"><input type="checkbox" class="mr-2">Enable Assistant Suggestions</label>
       <label class="block"><input type="checkbox" class="mr-2">Mute Assistant Sounds</label>
       <label class="block"><input type="checkbox" class="mr-2">Remember Tasks Across Sessions</label>
-      <label class="block"><input type="checkbox" class="mr-2">Smart Suggestions</label>
+      <label class="block"><input type="checkbox" class="mr-2">Enable Smart Suggestions</label>
       <label class="block"><input type="checkbox" class="mr-2">Show Tips / Training Overlay</label>
     </section>
 
-    <!-- Notifications -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">🔔 Notifications</h2>
+    <!-- Notifications Tab -->
+    <section id="tab-notify" class="tab-content hidden space-y-2">
+      <h2 class="text-xl font-semibold">🔔 Notifications</h2>
       <label class="block"><input type="checkbox" class="mr-2">Email Notifications</label>
       <label class="block"><input type="checkbox" class="mr-2">In-App Notifications</label>
       <label class="block"><input type="checkbox" class="mr-2">Notify When Powerups Released</label>
@@ -67,19 +82,29 @@
       </label>
     </section>
 
-    <!-- System Preferences -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">⚙️ System Preferences</h2>
-      <label class="block"><input type="checkbox" class="mr-2">Dark Mode</label>
-      <label class="block"><input type="checkbox" class="mr-2">Export / Import Preferences</label>
-      <label class="block"><input type="checkbox" class="mr-2">Reset All Settings</label>
+    <!-- System Preferences Tab -->
+    <section id="tab-system" class="tab-content hidden space-y-2">
+      <h2 class="text-xl font-semibold">⚙️ System Preferences</h2>
+      <label class="block">Theme Mode:
+        <select class="w-full mt-1 p-2 border rounded">
+          <option>Light</option>
+          <option>Dark</option>
+          <option>System</option>
+        </select>
+      </label>
       <label class="block"><input type="checkbox" class="mr-2">Show Debug Console</label>
-      <label class="block"><input type="checkbox" class="mr-2">Beta Features Opt-in</label>
+      <label class="block"><input type="checkbox" class="mr-2">Opt-in to Beta Features</label>
+
+      <div class="flex space-x-2 mt-3">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded">Export</button>
+        <button class="px-4 py-2 bg-green-500 text-white rounded">Import</button>
+        <button class="px-4 py-2 bg-red-500 text-white rounded">Reset All</button>
+      </div>
     </section>
 
-    <!-- Advanced -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">🧾 Advanced</h2>
+    <!-- Advanced Preferences Tab -->
+    <section id="tab-advanced" class="tab-content hidden space-y-2">
+      <h2 class="text-xl font-semibold">🧾 Advanced Preferences</h2>
       <label class="block">Default Currency:
         <select class="w-full mt-1 p-2 border rounded">
           <option>GBP (£)</option>
@@ -97,10 +122,12 @@
       <label class="block"><input type="checkbox" class="mr-2">Turn on Performance Logging</label>
     </section>
 
-    <div class="pt-4 flex justify-end space-x-4">
+    <!-- Bottom Buttons -->
+    <div class="pt-6 flex justify-end space-x-4">
       <button class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
       <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Save Settings</button>
     </div>
+
   </div>
 
 </body>
