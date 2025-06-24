@@ -14,6 +14,35 @@
       document.getElementById(tabId).classList.remove('hidden');
       event.target.classList.add('text-blue-300');
     }
+    function applySettings() {
+      const saved = JSON.parse(localStorage.getItem("userSettings"));
+      if (!saved) return;
+
+      const body = document.querySelector("body");
+      switch (saved.colour) {
+        case "indigo":
+          body.style.backgroundColor = "#4F46E5";
+          break;
+        case "pink":
+          body.style.backgroundColor = "#DB2777";
+          break;
+        case "green":
+          body.style.backgroundColor = "#059669";
+          break;
+        default:
+          body.style.backgroundColor = "#8C8CCF";
+      }
+      const sidebar = document.querySelector("aside");
+      if (sidebar && saved.sidebar) {
+        sidebar.style.backgroundColor = saved.sidebar;
+      }
+
+      if (saved.system?.[0]) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
   </script>
 </head>
 <body class="min-h-screen text-white" style="background-color: #8C8CCF;">
@@ -185,6 +214,7 @@ document.querySelectorAll(".notification").forEach((el, i) => el.checked = saved
 document.querySelectorAll(".system").forEach((el, i) => el.checked = saved.system?.[i] || false);
 document.querySelectorAll(".advanced").forEach((el, i) => el.checked = saved.advanced?.flags?.[i] || false);
     }
+     applySettings();
   };
 </script>
   <script>
