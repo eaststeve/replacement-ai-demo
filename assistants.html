@@ -1,60 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet Your AI Assistant Team</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      display: block;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistants</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Meet Your AI Assistant Team</h1>
-  <div class="grid">
-    <a href="#" class="card"><img src="images/arlo.jpg" alt="Arlo" /></a>
-    <a href="#" class="card"><img src="images/lena.jpg" alt="Lena" /></a>
-    <a href="#" class="card"><img src="images/zoe.jpg" alt="Zoe" /></a>
-    <a href="#" class="card"><img src="images/james.jpg" alt="James" /></a>
-    <a href="#" class="card"><img src="images/ethan.jpg" alt="Ethan" /></a>
-    <a href="#" class="card"><img src="images/isaac.jpg" alt="Isaac" /></a>
-    <a href="#" class="card"><img src="images/tyler.jpg" alt="Tyler" /></a>
-    <a href="#" class="card"><img src="images/aisha.jpg" alt="Aisha" /></a>
-    <a href="#" class="card"><img src="images/ava.jpg" alt="Ava" /></a>
-    <a href="#" class="card"><img src="images/leo.jpg" alt="Leo" /></a>
-    <a href="#" class="card"><img src="images/mia.jpg" alt="Mia" /></a>
-    <a href="#" class="card"><img src="images/sarah.jpg" alt="Sarah" /></a>
-    <a href="#" class="card"><img src="images/elsa.jpg" alt="elsa" /></a>
-    <a href="#" class="card"><img src="images/lucas.jpg" alt="Lucas" /></a>
-    <a href="#" class="card"><img src="images/sophie.jpg" alt="Sophie" /></a>
+<body class="bg-gradient-to-br from-indigo-800 to-blue-900 text-white min-h-screen p-6">
+  <h1 class="text-4xl font-bold mb-8 text-center">Meet Your AI Assistants</h1>
+
+  <div id="assistant-cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Cards will be inserted here dynamically -->
   </div>
+
+  <script>
+    fetch('assistantData.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("assistant-cards");
+
+        Object.entries(data).forEach(([key, { name, role, description }]) => {
+          const card = document.createElement("div");
+          card.className = "bg-white text-black rounded-xl shadow-lg overflow-hidden border border-gray-200";
+
+          card.innerHTML = `
+            <img src="images/${key}.png" alt="${name}" class="w-full h-64 object-cover">
+            <div class="p-4">
+              <h2 class="text-xl font-bold text-indigo-700">${name}</h2>
+              <p class="text-sm font-semibold text-gray-700">${role}</p>
+              <p class="mt-2 text-sm text-gray-600">${description}</p>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error("Failed to load assistant data:", err);
+      });
+  </script>
 </body>
 </html>
