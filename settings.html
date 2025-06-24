@@ -197,23 +197,25 @@
     }
 
     document.getElementById("saveSettings").addEventListener("click", () => {
-      const preferences = {
-        name: document.getElementById("ownerName").value,
-        colour: document.getElementById("bgColor").value,
-        language: document.getElementById("language").value,
-        assistant: Array.from(document.querySelectorAll(".assistant")).map(el => el.checked),
-        notifications: Array.from(document.querySelectorAll(".notification")).map(el => el.checked),
-        notificationFreq: document.getElementById("digestFreq").value,
-        system: Array.from(document.querySelectorAll(".system")).map(el => el.checked),
-        advanced: {
-          currency: document.getElementById("currency").value,
-          distance: document.getElementById("units").value,
-          flags: Array.from(document.querySelectorAll(".advanced")).map(el => el.checked)
-        }
-      };
-      localStorage.setItem("userSettings", JSON.stringify(preferences));
-      alert("Settings saved!");
-    });
+  const preferences = {
+    name: document.getElementById("ownerName").value,
+    colour: document.getElementById("bgColor").value,
+    sidebar: document.getElementById("sidebarColor").value,
+    language: document.getElementById("language").value,
+    assistant: Array.from(document.querySelectorAll(".assistant")).map(el => el.checked),
+    notifications: Array.from(document.querySelectorAll(".notification")).map(el => el.checked),
+    notificationFreq: document.getElementById("digestFreq").value,
+    system: Array.from(document.querySelectorAll(".system")).map(el => el.checked),
+    advanced: {
+      currency: document.getElementById("currency").value,
+      distance: document.getElementById("units").value,
+      flags: Array.from(document.querySelectorAll(".advanced")).map(el => el.checked)
+    }
+  };
+  localStorage.setItem("userSettings", JSON.stringify(preferences));
+  alert("Settings saved!");
+});
+
   </script>
 </body>
 
