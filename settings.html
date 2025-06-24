@@ -120,10 +120,10 @@
 
       <!-- Notifications Tab -->
       <div id="tab-notify" class="tab-content hidden">
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Email Notifications</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">In-App Notifications</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Notify When Powerups Released</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Notify When Assistant Updates</label>
+        <label class="block"><input type="checkbox" class="mr-2 notification">Email Notifications</label>
+        <label class="block"><input type="checkbox" class="mr-2 notification">In-App Notifications</label>
+        <label class="block"><input type="checkbox" class="mr-2 notification">Notify When Powerups Released</label>
+        <label class="block"><input type="checkbox" class="mr-2 notification">Notify When Assistant Updates</label>
         <label class="block mt-2">Digest Frequency:
           <select id="digestFreq" class="w-full mt-1 p-2 border rounded">
             <option>Daily</option>
@@ -135,11 +135,11 @@
 
       <!-- System Preferences Tab -->
       <div id="tab-system" class="tab-content hidden">
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Dark Mode</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Export / Import Preferences</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Reset All Settings</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Show Debug Console</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Beta Features Opt-in</label>
+        <label class="block"><input type="checkbox" class="mr-2 system">Dark Mode</label>
+        <label class="block"><input type="checkbox" class="mr-2 system">Export / Import Preferences</label>
+        <label class="block"><input type="checkbox" class="mr-2 system">Reset All Settings</label>
+        <label class="block"><input type="checkbox" class="mr-2 system">Show Debug Console</label>
+        <label class="block"><input type="checkbox" class="mr-2 system">Beta Features Opt-in</label>
       </div>
 
       <!-- Advanced Settings Tab -->
@@ -157,8 +157,8 @@
             <option>Miles</option>
           </select>
         </label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Enable Experimental Assistants</label>
-        <label class="block"><input type="checkbox" class="mr-2 assistant">Turn on Performance Logging</label>
+        <label class="block"><input type="checkbox" class="mr-2 advanced">Enable Experimental Assistants</label>
+        <label class="block"><input type="checkbox" class="mr-2 advanced">Turn on Performance Logging</label>
       </div>
 
       <!-- Bottom Buttons -->
@@ -172,18 +172,18 @@
   window.onload = () => {
     const saved = JSON.parse(localStorage.getItem("userSettings"));
     if (saved) {
-      document.querySelector("input[placeholder='e.g. Stephen Trautman']").value = saved.name || "";
-      document.querySelector("select").value = saved.colour || ""; // Background colour (first select)
-      document.querySelector("input[type='color']").value = saved.sidebar || ""; // Sidebar colour if you want to add it
-      document.querySelector("select:nth-of-type(2)").value = saved.language || "";
-      document.querySelector("select:nth-of-type(3)").value = saved.notificationFreq || "";
-      document.querySelector("select:nth-of-type(4)").value = saved.advanced?.currency || "";
-      document.querySelector("select:nth-of-type(5)").value = saved.advanced?.distance || "";
+    document.getElementById("ownerName").value = saved.name || "";
+document.getElementById("bgColor").value = saved.colour || "";
+document.getElementById("sidebarColor").value = saved.sidebar || "";
+document.getElementById("language").value = saved.language || "";
+document.getElementById("digestFreq").value = saved.notificationFreq || "";
+document.getElementById("currency").value = saved.advanced?.currency || "";
+document.getElementById("units").value = saved.advanced?.distance || "";
 
-      document.querySelectorAll("#tab-assistant input[type='checkbox']").forEach((el, i) => el.checked = saved.assistant?.[i] || false);
-      document.querySelectorAll("#tab-notify input[type='checkbox']").forEach((el, i) => el.checked = saved.notifications?.[i] || false);
-      document.querySelectorAll("#tab-system input[type='checkbox']").forEach((el, i) => el.checked = saved.system?.[i] || false);
-      document.querySelectorAll("#tab-advanced input[type='checkbox']").forEach((el, i) => el.checked = saved.advanced?.flags?.[i] || false);
+document.querySelectorAll(".assistant").forEach((el, i) => el.checked = saved.assistant?.[i] || false);
+document.querySelectorAll(".notification").forEach((el, i) => el.checked = saved.notifications?.[i] || false);
+document.querySelectorAll(".system").forEach((el, i) => el.checked = saved.system?.[i] || false);
+document.querySelectorAll(".advanced").forEach((el, i) => el.checked = saved.advanced?.flags?.[i] || false);
     }
   };
 </script>
