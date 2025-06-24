@@ -1,0 +1,77 @@
+{
+  "zoe": {
+    "name": "Zoe",
+    "role": "Social Media AI Assistant",
+    "description": "I plan posts, manage engagement, and write captions."
+  },
+  "arlo": {
+    "name": "Arlo",
+    "role": "Finance AI Assistant",
+    "description": "Hey, need help with bookkeeping tasks?"
+  },
+  "lena": {
+    "name": "Lena",
+    "role": "HR AI Assistant",
+    "description": "Tracks staff changes, onboarding, and HR docs."
+  },
+  "james": {
+    "name": "James",
+    "role": "Project Management AI Assistant",
+    "description": "Helps organize workflows, timelines and deliveralbles."
+  },
+  "ethan": {
+    "name": "Ethan",
+    "role": "eCommerc AI Assistant",
+    "description": "I manage your online store - made simple."
+  },
+  "aisha": {
+    "name": "Aisha",
+    "role": "Customer Service AI Assistant",
+    "description": "Handles queries, briefs, FAQ, and reminders."
+  },
+  "ava": {
+    "name": "Ava",
+    "role": "Service AI Assistant",
+    "description": "I chase missing payments and remind clients."
+  },
+  "leo": {
+    "name": "Leo",
+    "role": "Startup AI Assistant",
+    "description": "Need help getting your new business on track."
+  },
+  "mia": {
+    "name": "Mia",
+    "role": "Cybersecurity AI Assistant",
+    "description": "Need help flagging phishing attempts?."
+  },
+  "sarah": {
+    "name": "Sarah",
+    "role": "Staff AI Assistant",
+    "description": "Tracks internal team actions and attendance."
+  },
+  "elsa": {
+    "name": "Elsa",
+    "role": "Content AI Assistant",
+    "description": "Writes newsletters and campaign material."
+  },
+  "lucas": {
+    "name": "Lucas",
+    "role": "Business AI Assistant",
+    "description": "Let's maximize company earnings!"
+  },
+  "sophie": {
+    "name": "Sophie",
+    "role": "AI Assistant",
+    "description": "General support for tasks and overflow requests."
+  },
+  "isaac": {
+    "name": "Isaac",
+    "role": "Sales AI Assistant",
+    "description": "Ready to assist with pipeline management?"
+  },
+  "tyler": {
+    "name": "Tyler",
+    "role": "Data Science AI Assistant",
+    "description": "Got data? Let's find some insights."
+  }
+}
