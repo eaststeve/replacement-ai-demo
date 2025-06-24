@@ -111,21 +111,21 @@
 
       <!-- Assistant Settings Tab -->
       <div id="tab-assistant" class="tab-content hidden">
-        <label class="block"><input type="checkbox" class="mr-2">Enable Assistant Suggestions</label>
-        <label class="block"><input type="checkbox" class="mr-2">Mute Assistant Sounds</label>
-        <label class="block"><input type="checkbox" class="mr-2">Remember Tasks Across Sessions</label>
-        <label class="block"><input type="checkbox" class="mr-2">Smart Suggestions</label>
-        <label class="block"><input type="checkbox" class="mr-2">Show Tips / Training Overlay</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Enable Assistant Suggestions</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Mute Assistant Sounds</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Remember Tasks Across Sessions</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Smart Suggestions</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Show Tips / Training Overlay</label>
       </div>
 
       <!-- Notifications Tab -->
       <div id="tab-notify" class="tab-content hidden">
-        <label class="block"><input type="checkbox" class="mr-2">Email Notifications</label>
-        <label class="block"><input type="checkbox" class="mr-2">In-App Notifications</label>
-        <label class="block"><input type="checkbox" class="mr-2">Notify When Powerups Released</label>
-        <label class="block"><input type="checkbox" class="mr-2">Notify When Assistant Updates</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Email Notifications</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">In-App Notifications</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Notify When Powerups Released</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Notify When Assistant Updates</label>
         <label class="block mt-2">Digest Frequency:
-          <select class="w-full mt-1 p-2 border rounded">
+          <select id="digestFreq" class="w-full mt-1 p-2 border rounded">
             <option>Daily</option>
             <option>Weekly</option>
             <option>None</option>
@@ -135,30 +135,30 @@
 
       <!-- System Preferences Tab -->
       <div id="tab-system" class="tab-content hidden">
-        <label class="block"><input type="checkbox" class="mr-2">Dark Mode</label>
-        <label class="block"><input type="checkbox" class="mr-2">Export / Import Preferences</label>
-        <label class="block"><input type="checkbox" class="mr-2">Reset All Settings</label>
-        <label class="block"><input type="checkbox" class="mr-2">Show Debug Console</label>
-        <label class="block"><input type="checkbox" class="mr-2">Beta Features Opt-in</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Dark Mode</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Export / Import Preferences</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Reset All Settings</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Show Debug Console</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Beta Features Opt-in</label>
       </div>
 
       <!-- Advanced Settings Tab -->
       <div id="tab-advanced" class="tab-content hidden">
         <label class="block mb-2">Default Currency:
-          <select class="w-full mt-1 p-2 border rounded">
+          <select id="currency" class="w-full mt-1 p-2 border rounded">
             <option>GBP (£)</option>
             <option>USD ($)</option>
             <option>EUR (€)</option>
           </select>
         </label>
         <label class="block mb-2">Preferred Units:
-          <select class="w-full mt-1 p-2 border rounded">
+          <select id="units" class="w-full mt-1 p-2 border rounded">
             <option>Kilometres</option>
             <option>Miles</option>
           </select>
         </label>
-        <label class="block"><input type="checkbox" class="mr-2">Enable Experimental Assistants</label>
-        <label class="block"><input type="checkbox" class="mr-2">Turn on Performance Logging</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Enable Experimental Assistants</label>
+        <label class="block"><input type="checkbox" class="mr-2 assistant">Turn on Performance Logging</label>
       </div>
 
       <!-- Bottom Buttons -->
