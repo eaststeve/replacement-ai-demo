@@ -168,7 +168,25 @@
       </div>
     </main>
   </div>
+<script>
+  window.onload = () => {
+    const saved = JSON.parse(localStorage.getItem("userSettings"));
+    if (saved) {
+      document.querySelector("input[placeholder='e.g. Stephen Trautman']").value = saved.name || "";
+      document.querySelector("select").value = saved.colour || ""; // Background colour (first select)
+      document.querySelector("input[type='color']").value = saved.sidebar || ""; // Sidebar colour if you want to add it
+      document.querySelector("select:nth-of-type(2)").value = saved.language || "";
+      document.querySelector("select:nth-of-type(3)").value = saved.notificationFreq || "";
+      document.querySelector("select:nth-of-type(4)").value = saved.advanced?.currency || "";
+      document.querySelector("select:nth-of-type(5)").value = saved.advanced?.distance || "";
 
+      document.querySelectorAll("#tab-assistant input[type='checkbox']").forEach((el, i) => el.checked = saved.assistant?.[i] || false);
+      document.querySelectorAll("#tab-notify input[type='checkbox']").forEach((el, i) => el.checked = saved.notifications?.[i] || false);
+      document.querySelectorAll("#tab-system input[type='checkbox']").forEach((el, i) => el.checked = saved.system?.[i] || false);
+      document.querySelectorAll("#tab-advanced input[type='checkbox']").forEach((el, i) => el.checked = saved.advanced?.flags?.[i] || false);
+    }
+  };
+</script>
   <script>
     feather.replace();
 
