@@ -13,31 +13,32 @@
     <!-- Cards will be inserted here dynamically -->
   </div>
 
-  <script>
-    fetch('assistantData.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("assistant-cards");
+ <script>
+  fetch('assistantData.json')
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("assistant-cards");
 
-        Object.entries(data).forEach(([key, { name, role, description }]) => {
-          const card = document.createElement("div");
-          card.className = "bg-white text-black rounded-xl shadow-lg overflow-hidden border border-gray-200";
+      Object.entries(data).forEach(([key, { name, role, description }]) => {
+        const card = document.createElement("div");
+        card.className = "relative bg-white text-black rounded-xl shadow-lg overflow-hidden border border-gray-200";
 
-          card.innerHTML = `
-            <img src="images/${key}.png" alt="${name}" class="w-full h-64 object-cover">
-            <div class="p-4">
-              <h2 class="text-xl font-bold text-indigo-700">${name}</h2>
-              <p class="text-sm font-semibold text-gray-700">${role}</p>
-              <p class="mt-2 text-sm text-gray-600">${description}</p>
-            </div>
-          `;
+        card.innerHTML = `
+          <img src="images/${key}.png" alt="${name}" class="w-full h-96 object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent text-white p-4">
+            <h2 class="text-2xl font-bold">${name}</h2>
+            <p class="text-sm font-semibold text-gray-200">${role}</p>
+            <p class="text-sm italic mt-1 text-gray-300">“${description}”</p>
+          </div>
+        `;
 
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error("Failed to load assistant data:", err);
+        container.appendChild(card);
       });
-  </script>
+    })
+    .catch(err => {
+      console.error("Failed to load assistant data:", err);
+    });
+</script>
+
 </body>
 </html>
