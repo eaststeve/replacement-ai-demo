@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Assistants</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -10,35 +10,32 @@
   <h1 class="text-4xl font-bold mb-8 text-center">Meet Your AI Assistants</h1>
 
   <div id="assistant-cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- Cards will be inserted here dynamically -->
+    <!-- Cards injected here -->
   </div>
 
- <script>
-  fetch('assistantData.json')
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("assistant-cards");
+  <script>
+    fetch('assistantData.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("assistant-cards");
 
-      Object.entries(data).forEach(([key, { name, role, description }]) => {
-        const card = document.createElement("div");
-        card.className = "relative bg-white text-black rounded-xl shadow-lg overflow-hidden border border-gray-200";
+        Object.entries(data).forEach(([key, { name, role, description }]) => {
+          const card = document.createElement("div");
+          card.className = "relative rounded-xl overflow-hidden shadow-xl";
 
-        card.innerHTML = `
-          <img src="images/${key}.png" alt="${name}" class="w-full h-96 object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent text-white p-4">
-            <h2 class="text-2xl font-bold">${name}</h2>
-            <p class="text-sm font-semibold text-gray-200">${role}</p>
-            <p class="text-sm italic mt-1 text-gray-300">“${description}”</p>
-          </div>
-        `;
+          card.innerHTML = `
+            <img src="images/${key}.png" alt="${name}" class="w-full h-96 object-cover" />
+            <div class="absolute bottom-0 w-full px-4 py-3 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
+              <h2 class="text-2xl font-bold">${name}</h2>
+              <p class="text-sm font-semibold text-gray-200">${role}</p>
+              <p class="text-sm italic mt-1 text-gray-300">“${description}”</p>
+            </div>
+          `;
 
-        container.appendChild(card);
-      });
-    })
-    .catch(err => {
-      console.error("Failed to load assistant data:", err);
-    });
-</script>
-
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error("Failed to load assistant data:", err));
+  </script>
 </body>
 </html>
