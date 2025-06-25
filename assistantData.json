@@ -7,71 +7,71 @@
   "arlo": {
     "name": "Arlo",
     "role": "Finance AI Assistant",
-    "description": "Hey, need help with bookkeeping tasks?"
+    "description": "I help with bookkeeping, invoicing, and financial records."
   },
   "lena": {
     "name": "Lena",
     "role": "HR AI Assistant",
-    "description": "Tracks staff changes, onboarding, and HR docs."
+    "description": "I track staff changes, onboarding, and HR documentation."
   },
   "james": {
     "name": "James",
     "role": "Project Management AI Assistant",
-    "description": "Helps organize workflows, timelines and deliveralbles."
+    "description": "I help organize workflows, timelines, and deliverables."
   },
   "ethan": {
     "name": "Ethan",
     "role": "eCommerce AI Assistant",
-    "description": "I manage your online store - made simple."
+    "description": "I manage your online store — made simple."
   },
   "aisha": {
     "name": "Aisha",
     "role": "Customer Service AI Assistant",
-    "description": "Handles queries, briefs, FAQ, and reminders."
+    "description": "I handle queries, briefs, FAQs, and reminders."
   },
   "ava": {
     "name": "Ava",
     "role": "Service AI Assistant",
-    "description": "I chase missing payments and remind clients."
+    "description": "I chase missing payments and send reminders."
   },
   "leo": {
     "name": "Leo",
     "role": "Startup AI Assistant",
-    "description": "Need help getting your new business on track."
+    "description": "I help get your new business on track."
   },
   "mia": {
     "name": "Mia",
     "role": "Cybersecurity AI Assistant",
-    "description": "Need help flagging phishing attempts?"
+    "description": "I help flag phishing attempts and security risks."
   },
   "sarah": {
     "name": "Sarah",
     "role": "Staff AI Assistant",
-    "description": "Tracks internal team actions and attendance."
+    "description": "I track internal team actions and attendance."
   },
   "elsa": {
     "name": "Elsa",
     "role": "Content AI Assistant",
-    "description": "Writes newsletters and campaign material."
+    "description": "I write newsletters and campaign materials."
   },
   "lucas": {
     "name": "Lucas",
     "role": "Business AI Assistant",
-    "description": "Let's maximize company earnings!"
+    "description": "I help maximize company earnings."
   },
   "sophie": {
     "name": "Sophie",
     "role": "AI Assistant",
-    "description": "General support for tasks and overflow requests."
+    "description": "I support general tasks and overflow requests."
   },
   "isaac": {
     "name": "Isaac",
     "role": "Sales AI Assistant",
-    "description": "Ready to assist with pipeline management?"
+    "description": "I assist with pipeline and lead management."
   },
   "tyler": {
     "name": "Tyler",
     "role": "Data Science AI Assistant",
-    "description": "Got data? Let's find some insights."
+    "description": "I turn raw data into business insights."
   }
 }
