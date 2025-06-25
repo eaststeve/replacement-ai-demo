@@ -14,28 +14,25 @@
   </div>
 
   <script>
-    fetch('assistantData.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("assistant-cards");
+  fetch('assistantData.json')
+    .then(res => res.json())
+    .then(data => {
+      Object.entries(data).forEach(([key, { name, role, description }]) => {
+        const card = document.querySelector(`.card img[src$="${key}.png"]`)?.parentElement;
 
-        Object.entries(data).forEach(([key, { name, role, description }]) => {
-          const card = document.createElement("div");
-          card.className = "relative rounded-xl overflow-hidden shadow-xl";
-
-          card.innerHTML = `
-            <img src="images/${key}.png" alt="${name}" class="w-full h-96 object-cover" />
-            <div class="absolute bottom-0 w-full px-4 py-3 bg-gradient-to-t from-black via-black/70 to-transparent text-white">
-              <h2 class="text-2xl font-bold">${name}</h2>
-              <p class="text-sm font-semibold text-gray-200">${role}</p>
-              <p class="text-sm italic mt-1 text-gray-300">“${description}”</p>
-            </div>
+        if (card) {
+          const overlay = document.createElement("div");
+          overlay.className = "absolute bottom-0 w-full px-4 py-3 bg-gradient-to-t from-black via-black/70 to-transparent text-white";
+          overlay.innerHTML = `
+            <h2 class="text-2xl font-bold">${name}</h2>
+            <p class="text-sm font-semibold text-gray-200">${role}</p>
+            <p class="text-sm italic mt-1 text-gray-300">“${description}”</p>
           `;
-
-          container.appendChild(card);
-        });
-      })
-      .catch(err => console.error("Failed to load assistant data:", err));
-  </script>
+          card.appendChild(overlay);
+        }
+      });
+    })
+    .catch(err => console.error("Failed to load assistant data:", err));
+</script>
 </body>
 </html>
