@@ -131,12 +131,9 @@
     <!-- Sidebar -->
     <aside class="w-20 text-white flex flex-col py-6 space-y-6 fixed top-0 left-0 h-full z-40 justify-between" style="background-color: #1F395C;">
       <div>
-        <!-- Sidebar Header (Menu Icon) -->
         <div class="flex justify-center items-center mb-4">
           <i data-feather="menu" class="cursor-pointer"></i>
         </div>
-
-        <!-- Main Icons -->
         <div class="flex flex-col space-y-6 mt-96">
           <div class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative">
             <i data-feather="home"></i>
@@ -160,12 +157,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Settings Icon -->
-     <a href="settings.html" class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative mb-6">
-  <i data-feather="settings"></i>
-  <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Settings</span>
-</a>
+      <a href="settings.html" class="group flex justify-center items-center px-2 cursor-pointer hover:text-black font-bold relative mb-6">
+        <i data-feather="settings"></i>
+        <span class="absolute left-full ml-2 w-max opacity-0 group-hover:opacity-100 transition-opacity text-black font-bold">Settings</span>
+      </a>
     </aside>
 
     <!-- Main Content -->
@@ -173,28 +168,45 @@
       <h1 class="text-4xl font-bold text-center mb-2">East-West AI Platform</h1>
       <p id="workspace-title" class="text-center text-gray-300 mb-12">My AI Workspace</p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Assistant Card Images -->
-        <img src="images/zoe.png" alt="Zoe" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300"> 
-<img src="images/arlo.png" alt="Arlo" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/lena.png" alt="Lena" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/james.png" alt="James" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/ethan.png" alt="Ethan" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/aisha.png" alt="Aisha" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/ava.png" alt="Ava" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/leo.png" alt="Leo" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/mia.png" alt="Mia" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/sarah.png" alt="Sarah" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/elsa.png" alt="Elsa" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/lucas.png" alt="Lucas" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/sophie.png" alt="Sophie" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/isaac.png" alt="Isaac" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
-<img src="images/tyler.png" alt="Tyler" class="rounded-xl shadow-xl hover:shadow-violet-500/30 transition duration-300">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="assistant-grid">
+        <!-- Assistant cards will be injected here dynamically -->
       </div>
     </main>
   </div>
 
-  
+  <script>
+    const assistants = [
+      { id: "zoe", name: "Zoe", role: "Social Media AI Assistant", desc: "I plan posts, manage engagement, and write captions." },
+      { id: "arlo", name: "Arlo", role: "Finance AI Assistant", desc: "I help with bookkeeping, invoicing, and financial records." },
+      { id: "lena", name: "Lena", role: "HR AI Assistant", desc: "I’ll track staff changes, onboarding, and HR documentation." },
+      { id: "james", name: "James", role: "Project Management AI Assistant", desc: "I help organize workflows, timelines, and deliverables." },
+      { id: "ethan", name: "Ethan", role: "eCommerce AI Assistant", desc: "I manage your online store — made simple." },
+      { id: "aisha", name: "Aisha", role: "Customer Service AI Assistant", desc: "I handle queries, briefs, FAQs, and reminders." },
+      { id: "ava", name: "Ava", role: "Service AI Assistant", desc: "I chase missing payments and send reminders." },
+      { id: "leo", name: "Leo", role: "Startup AI Assistant", desc: "I help get your new business on track." },
+      { id: "mia", name: "Mia", role: "", desc: "" },
+      { id: "sarah", name: "Sarah", role: "", desc: "" },
+      { id: "elsa", name: "Elsa", role: "", desc: "" },
+      { id: "lucas", name: "Lucas", role: "", desc: "" },
+      { id: "sophie", name: "Sophie", role: "", desc: "" },
+      { id: "isaac", name: "Isaac", role: "", desc: "" },
+      { id: "tyler", name: "Tyler", role: "", desc: "" }
+    ];
+
+    const grid = document.getElementById("assistant-grid");
+    assistants.forEach(({ id, name, role, desc }) => {
+      const card = document.createElement("div");
+      card.className = "relative rounded-xl overflow-hidden shadow-xl hover:shadow-violet-500/30 transition duration-300";
+      card.innerHTML = `
+        <img src="images/${id}.png" alt="${name}" class="w-full h-96 object-cover" />
+        <div class="absolute bottom-0 w-full px-4 py-3 bg-gradient-to-t from-black/40 via-black/10 to-transparent">
+          <h2 class="text-xl font-bold text-white">${name}</h2>
+          <p class="text-sm font-medium text-gray-200">${role}</p>
+          <p class="text-sm italic text-gray-300 mt-1">“${desc}”</p>
+        </div>`;
+      grid.appendChild(card);
+    });
+  </script>
   <script>feather.replace();</script>
 </body>
 
