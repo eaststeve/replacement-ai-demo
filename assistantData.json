@@ -21,7 +21,7 @@
   },
   "ethan": {
     "name": "Ethan",
-    "role": "eCommerc AI Assistant",
+    "role": "eCommerce AI Assistant",
     "description": "I manage your online store - made simple."
   },
   "aisha": {
@@ -42,7 +42,7 @@
   "mia": {
     "name": "Mia",
     "role": "Cybersecurity AI Assistant",
-    "description": "Need help flagging phishing attempts?."
+    "description": "Need help flagging phishing attempts?"
   },
   "sarah": {
     "name": "Sarah",
